@@ -1,0 +1,18 @@
+.indus-hover:after, .indus-hover:before {
+  display:block;
+  content: '';
+  border-bottom: solid 6px #019fb6;  
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+	position:absolute;
+  bottom:0; 
+	left:0;
+  width:100%;
+	transform-origin:  0% 50%; 
+}
+
+  
+.indus-hover:hover:after, .indus-hover:hover:before { 
+  transform: scaleX(1);
+	transition-delay:150ms;
+}
