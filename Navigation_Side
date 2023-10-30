@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            position: relative;
+            width: min-content;
+            cursor: pointer;
+        }
+
+        .header svg {
+            height: 30px;
+            width: 40px;
+            fill: black;
+        }
+
+        .header_close {
+            position: absolute;
+            background: #222;
+            width: min-content;
+            padding: 12px;
+            transition: .2s;
+            cursor: pointer;
+            right: -45px;
+            top: 0px;
+        }
+
+        .header_close:hover {
+            background: #0085f9;
+        }
+
+        .header_close svg {
+            height: 15px;
+            width: 20px;
+            color: #fff;
+        }
+
+        .header_left {
+            position: absolute;
+            left: -400px;
+            top: 0;
+            width: 100%;
+            max-width: 340px;
+            transition: .3s;
+            z-index: 999;
+            height: 100vh;
+            background: #fff;
+        }
+
+        .header_left img {
+            width: 100%;
+        }
+
+        .header_nav {
+            position: relative;
+        }
+
+        .header_nav ul {
+            position: relative;
+            margin: 0 2%;
+            padding: 0;
+        }
+
+        .header_nav ul li {
+            list-style: none;
+        }
+
+        .header_nav ul li a {
+            display: block;
+            color: #222;
+            font-size: 20px;
+            text-decoration: none;
+            font-family: 'Roboto Condensed';
+            border-bottom: 1px solid #efefef;
+            padding: 15px 20px;
+        }
+
+        .overlay_start {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            z-index: 468;
+            visibility: hidden;
+            pointer-events: none;
+            opacity: 0;
+            background: rgba(0, 0, 0, .7);
+            transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+        }
+
+        .overlay_start.active{
+            pointer-events: auto;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity .25s, visibility;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay_start"></div>
+    <div class="header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16" fill="currentColor">
+            <rect width="30" height="1.5"></rect>
+            <rect y="7" width="20" height="1.5"></rect>
+            <rect y="14" width="30" height="1.5"></rect>
+        </svg>
+    </div>
+    <div class="header_left">
+        <div class="header_close">
+            <svg class="t4s-iconsvg-close" role="presentation" viewBox="0 0 16 14">
+                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+            </svg>
+        </div>
+        <div class="logo"><img
+                src="https://cdn.shopify.com/s/files/1/0029/5682/0569/t/29/assets/canna-river-logo.png" /></div>
+        <div class="header_nav">
+            <ul>
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Discount Program</a></li>
+                <li><a href="#">Loyalty Program</a></li>
+                <li><a href="#">Product Documentation</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Affiliate Inquiry</a></li>
+                <li><a href="#">Wholesale Inquiry</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // $('.header_left').hide();
+        $('.header').on('click', function () {
+            $('.overlay_start').addClass('active');
+            $('.header_left').css('left', '0px');
+        })
+
+        $('.header_close').on('click', function () {
+            $('.overlay_start').removeClass('active');
+            $('.header_left').css('left', '-400px');
+        })
+    </script>
+</body>
+
+</html>
