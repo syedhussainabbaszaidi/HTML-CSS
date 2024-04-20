@@ -1,0 +1,113 @@
+                <div class="lefts">
+                    <div class="lefts-slide">
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    </div>
+            
+                    <div class="lefts-slide">
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    </div>
+                </div>
+                <div class="rights">
+                    <div class="rights-slide">
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    </div>
+            
+                    <div class="rights-slide">
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    <div><img src="images/venues.png" /><div class="tool_tip">Demo</div></div>
+                    </div>
+                </div>
+
+
+                <style>
+                  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slide1 {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .lefts {
+    overflow: hidden;
+    margin-top: 50px;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  
+  .lefts:hover .lefts-slide {
+    animation-play-state: paused;
+  }
+  
+  .lefts-slide {
+    display: inline-flex;
+    animation: 35s slide infinite linear;
+  }
+  
+  .lefts-slide img {
+    height: 70px;
+    margin: 0 20px;
+  }
+  
+  .rights {
+    overflow: hidden;
+    margin-top: 50px;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  
+  .rights:hover .rights-slide {
+    animation-play-state: paused;
+  }
+  
+  .rights-slide {
+    display: inline-flex;
+    animation: 35s slide1 infinite linear;
+  }
+  
+  .rights-slide img {
+    height: 70px;
+    margin: 0 20px;
+  }
+                </style>
