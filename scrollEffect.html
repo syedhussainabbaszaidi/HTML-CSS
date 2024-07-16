@@ -1,0 +1,85 @@
+<div class="imagesArea">
+  <div class="img1">
+    <img src="">
+  </div>
+  <div class="img2">
+    <img src="">
+  </div>
+  <div class="img3">
+    <img src="">
+  </div>
+</div>
+<div class="text">
+  // text add krdena
+</div>
+
+<style>
+.imagesArea {
+    position: sticky;
+    top: 80px;
+    height: 610px;
+}
+
+.img1{
+	opacity: 1;
+}
+
+.img1,
+.img2,
+.img3 {
+	background:#000;
+	padding: 0px;
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 300ms linear;
+	width: 100%;
+}
+</style>
+<script>
+    jQuery(window).scroll(function() {
+        var scrollTop = jQuery(this).scrollTop();
+        var sectionHeight = jQuery('.imagesArea').height() * 2;
+        if (scrollTop >= 1.4 * sectionHeight) {
+            jQuery('.img1').css({
+                opacity: 0,
+                visibility: 'hidden'
+            });
+            jQuery('.img2').css({
+                opacity: 0,
+                visibility: 'hidden'
+            });
+            jQuery('.img3').css({
+                opacity: 1,
+                visibility: 'visible'
+            });
+        } else if (scrollTop >= 0.9 * sectionHeight) {
+            jQuery('.img1').css({
+                opacity: 0,
+                visibility: 'hidden'
+            });
+            jQuery('.img2').css({
+                opacity: 1,
+                visibility: 'visible'
+            });
+            jQuery('.img3').css({
+                opacity: 0,
+                visibility: 'hidden'
+            });
+        } else {
+            jQuery('.img1').css({
+                opacity: 1,
+                visibility: 'visible'
+            });
+            jQuery('.img2').css({
+                opacity: 0,
+                visibility: 'hidden'
+            });
+            jQuery('.img3').css({
+                opacity: 0,
+                visibility: 'hidden'
+            });
+        }
+    });
+    
+    </script>
