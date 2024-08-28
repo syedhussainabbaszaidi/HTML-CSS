@@ -1,0 +1,72 @@
+<div class="homeBannerSlides">
+  <div class="swiper customSlides">
+    <div class="swiper-wrapper">
+      <div class="homeBannerSlidetxt">ZERO SUGAR</div>
+      <div class="homeBannerSlidetxt">VEGAN</div>
+      <div class="homeBannerSlidetxt">GLUTEN FREE</div>
+      <div class="homeBannerSlidetxt">Non-GMO</div>
+      <div class="homeBannerSlidetxt">ZERO SUGAR</div>
+      <div class="homeBannerSlidetxt">VEGAN</div>
+      <div class="homeBannerSlidetxt">GLUTEN FREE</div>
+      <div class="homeBannerSlidetxt">Non-GMO</div
+      <div class="homeBannerSlidetxt">ZERO SUGAR</div>
+      <div class="homeBannerSlidetxt">VEGAN</div>
+      <div class="homeBannerSlidetxt">GLUTEN FREE</div>
+      <div class="homeBannerSlidetxt">Non-GMO</div>
+    </div>
+  </div>
+</div>
+<style>
+.homeBannerSlides {
+  position: relative;
+  display: flex;
+  background: #B9D3D3;
+  gap: 0px;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.homeBannerSlidetxt {
+  position: relative;
+  font-family: 'Forma DJR Display';
+  font-size: 15px;
+  color: #232323;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.homeBannerSlides .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+</style>
+
+<script>
+  var swiper7 = new Swiper(".customSlides", {
+		loop: true,
+		loopedSlides: 8,
+		slidesPerView: 'auto',
+		allowTouchMove: false,
+		disableOnInteraction: true,
+		freeMode: true,
+		loop: true,
+		speed: 2500,
+		autoplay: {
+			delay: 2,
+			reverseDirection: true
+		},
+		breakpoints: {
+			// when window width is <= 499px
+			300: {
+				slidesPerView: 2,
+			},
+			600: {
+				slidesPerView: 4,
+			},
+			// when window width is <= 999px
+			999: {
+				slidesPerView: 10,
+			}
+		}
+	});
+</script>
