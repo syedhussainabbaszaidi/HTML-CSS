@@ -7,3 +7,49 @@ body::-webkit-scrollbar {
     width: 8px;
     background-color: #09418d;
 }
+
+
+nechaye alag hover or active wala ye hai 
+
+    /*SCROLLBAR*/
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-button {
+      width: 0px;
+      height: 0px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #872954;
+      border: 0px none #ffffff;
+      border-radius: 50px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffffff;
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+      background: #ff0000;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #593D09;
+      border: 0px none #ffffff;
+      border-radius: 50px;
+    }
+
+    ::-webkit-scrollbar-track:hover {
+      background: #666666;
+    }
+
+    ::-webkit-scrollbar-track:active {
+      background: #666666;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
