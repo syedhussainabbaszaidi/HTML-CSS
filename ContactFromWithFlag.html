@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="./assets/css/intlTelInput.min.css" />
+<!-- Jhanday ki image download krni h  -->
+
+                        <form id="contactForm" action="#" method="POST" enctype="multipart/form-data" novalidate>
+                            <div class="row">
+                              <div class="col-lg-6 mb-4 pe-lg-4">
+                                <label>Your Name</label>
+                                <div class="input">
+                                  <input type="text" name="firstname" placeholder="Enter Your Name">
+                                  <span class="error-txt"></span>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 mb-4 pe-lg-4">
+                                <label>Last Name</label>
+                                <div class="input">
+                                  <input type="text" name="lastname" placeholder="Enter Last Name">
+                                  <span class="error-txt"></span>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 mb-4 pe-lg-4">
+                                <label>Email</label>
+                                <div class="input">
+                                  <input type="text" name="email" placeholder="Enter Your Email">
+                                  <span class="error-txt"></span>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 mb-4 pe-lg-4">
+                                <label>Phone Number</label>
+                                <div class="input">
+                                  <input type="tel" name="phone" id="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                                  <span class="error-txt"></span>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label>Description</label>
+                                <div class="input">
+                                  <textarea placeholder="Enter your Description" name="desc"></textarea>
+                                  <span class="error-txt"></span>
+                                </div>
+                              </div>
+                              <div class="col-12 mt-4">
+                                <div class="g-recaptcha" name="recapcha" data-sitekey="6Lcrk24qAAAAAGgY5pEtspkGlRqNG6e3942dCVdA"></div>
+                              </div>
+                              <div class="col-12 mt-4">
+                                <button class="primary-outline-btn">SUBMIT</button>
+                              </div>
+                            </div>
+                          </form>
+<script src="./assets/js/intlTelInput.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?hl=en"></script>  
+<script>
+      // intlTelInput JS
+      let iti
+      var input = document.querySelector("#phone");
+      if (input) {
+        iti = window.intlTelInput(input, {
+          initialCountry: "ae",
+          preferredCountries: ['ae'],
+          autoPlaceholder: "polite",
+          showSelectedDialCode: true,
+          utilsScript: "./assets/js/utils.js",
+          hiddenInput: () => ({ phone: "full_phone" })
+        });
+        input.addEventListener("blur", function () {
+          if (input.value.trim()) {
+            if (iti.isValidNumber()) {
+              input.parentElement.parentElement.classList.remove("error");
+              input.parentElement.parentElement.querySelector(".error-txt").innerHTML = "";
+            } else {
+              input.parentElement.parentElement.classList.add("error");
+              input.parentElement.parentElement.querySelector(".error-txt").innerHTML = "Invalid Number";
+            }
+          }
+          if (input.value === "") {
+            input.parentElement.parentElement.classList.remove("error");
+            input.parentElement.parentElement.querySelector(".error-txt").innerHTML = "";
+          }
+        });
+      }
+      // intlTelInput JS End
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        const firstname = this.querySelector("[name='firstname']");
+        const lastname = this.querySelector("[name='lastname']");
+        const email = this.querySelector("[name='email']");
+        const phone = this.querySelector("[name='phone']");
+        const desc = this.querySelector("[name='desc']");
+        var grecaptchaResponse = grecaptcha.getResponse();
+
+        if (firstname.value === "") {
+          firstname.parentElement.classList.add("error");
+          firstname.parentElement.querySelector(".error-txt").innerHTML = "This field is required";
+          e.preventDefault();
+        }
+
+        if (lastname.value === "") {
+          lastname.parentElement.classList.add("error");
+          lastname.parentElement.querySelector(".error-txt").innerHTML = "This field is required";
+          e.preventDefault();
+        }
+
+        if (email.value === "") {
+          email.parentElement.classList.add("error");
+          email.parentElement.querySelector(".error-txt").innerHTML = "This field is required";
+          e.preventDefault();
+        } else if (!checkEmailField(email.value)) {
+          email.parentElement.classList.add("error");
+          email.parentElement.querySelector(".error-txt").innerHTML = "Invalid email";
+          e.preventDefault();
+        }
+
+        if (phone.value === "") {
+          phone.parentElement.parentElement.classList.add("error");
+          phone.parentElement.parentElement.querySelector(".error-txt").innerHTML = "This field is required";
+          e.preventDefault();
+        } else if (!iti.isValidNumber()) {
+          phone.parentElement.parentElement.classList.add("error");
+          phone.parentElement.parentElement.querySelector(".error-txt").innerHTML = "Invalid number";
+          e.preventDefault();
+        }
+
+        if (desc.value === "") {
+          desc.parentElement.classList.add("error");
+          desc.parentElement.querySelector(".error-txt").innerHTML = "This field is required";
+          e.preventDefault();
+        }
+
+        if (!grecaptchaResponse) {
+          alert("Please verify that you are human!");
+          e.preventDefault();
+        }
+      });
+
+      document.querySelectorAll("#contactForm input").forEach(function (input) {
+        input.addEventListener("input", function () {
+          input.parentElement.classList.remove("error");
+          input.parentElement.parentElement.querySelector(".error-txt").innerHTML = "";
+          input.parentElement.querySelector(".error-txt").innerHTML = "";
+        });
+      });
+  </script>
