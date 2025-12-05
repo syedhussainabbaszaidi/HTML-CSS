@@ -1,0 +1,136 @@
+    <!-- Ye header mein dalna hai -->
+    <span class="openSidebar d-lg-none d-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
+            </path>
+        </svg>
+    </span>
+
+    <!-- Ye Header k bahir rhkna hai sidebar hai ye -->
+    <div class="sidebar-bg closeSidebar"></div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <a href="./index.html">
+                <img src="./assets/images/logo.svg" width="120" alt="">
+            </a>
+            <a href="#" class="closeSidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26.163 26.163">
+                    <rect width="36" height="2" fill="#000" transform="translate(0.707) rotate(45)"></rect>
+                    <rect width="36" height="2" fill="#000" transform="translate(0 25.456) rotate(-45)"></rect>
+                </svg>
+            </a>
+        </div>
+        <div class="sidebar-body">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about-us.html" class="active">About Us</a></li>
+                <li><a href="./oil-terminal.html">Oil Terminal</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./blogs-and-articles.html">Our Blogs</a></li>
+                <li><a href="./careerss.html">Careers</a></li>
+                <li><a href="./contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        body.open-sidebar .sidebar-bg,
+        body.open-sidebar .sidebar {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        body.open-sidebar .sidebar {
+            transition-delay: 0.2s;
+        }
+
+        .sidebar-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateX(400px);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 102;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            max-width: 350px;
+            background-color: #fff;
+            box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.1215686275);
+            background-color: #fff;
+            z-index: 102;
+            transform: translateX(400px);
+            visibility: hidden;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .sidebar .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            gap: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sidebar .sidebar-body {
+            overflow: auto;
+            height: calc(100% - 80px);
+            padding: 15px;
+        }
+
+        .sidebar .sidebar-body ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .sidebar .sidebar-body ul li a {
+            display: block;
+            padding: 10px;
+            color: #000;
+            font-size: 1.1rem;
+            border: 1px solid #eee;
+
+            &.active {
+                color: #BB862A;
+            }
+        }
+
+        .sidebar .sidebar-body ul li:not(:last-child) a {
+            border-bottom: 0;
+        }
+
+        .sidebar .sidebar-body ul li.has-drop .sub-menu a {
+            border: 1px solid #eee;
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll(".openSidebar").forEach(element => {
+            element.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.body.classList.add("open-sidebar");
+            });
+        });
+        document.querySelectorAll(".closeSidebar").forEach(element => {
+            element.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.body.classList.remove("open-sidebar");
+            });
+        });
+    </script>
